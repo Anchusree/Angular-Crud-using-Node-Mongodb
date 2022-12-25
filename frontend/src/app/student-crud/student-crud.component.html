@@ -1,0 +1,46 @@
+<div class="container mt-4">
+    <div class="card">
+        <h1>Registration</h1>
+        <form >
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone:true}" class="form-control" placeholder="Enter name"/>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" [(ngModel)]="address" [ngModelOptions]="{standalone:true}" class="form-control"  placeholder="Enter address"/>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" [(ngModel)]="phone" [ngModelOptions]="{standalone:true}" placeholder="Enter phone"/>
+              </div>
+            <button type="submit" class="btn btn-primary" (click)="save()">Submit</button>
+          </form>
+    </div>
+</div>
+<div class="container mt-4">
+  <h1>Data</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of EmployeeArray">
+        <td>{{employee.name | uppercase}}</td>
+        <td>{{employee.address}}</td>
+        <td>{{employee.phone}}</td>
+        <td>
+          <button type="button" class="btn btn-success" (click)="setUpdate(employee)" >Edit</button>
+          <button type="button" class="btn btn-danger" (click)="setDelete(employee)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
